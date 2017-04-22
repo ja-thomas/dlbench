@@ -26,7 +26,7 @@
 #'   Pointsize of intepreted big points (1/72 inch). See \code{\link{bmp}}.
 #'   Default is \code{2}.
 #' @param create.task [\code{logical(1)}]\cr
-#'   Should a task be created? If \code{TRUE} a mlr regression task (see \code{\link[mlr]{makeRegrTask}}
+#'   Should a task be created? If \code{TRUE} a \pkg{mlr} regression task (see \code{\link[mlr]{makeRegrTask}}
 #'   is returned. Otherwise a \code{data.frame} is returned.
 #' @return \code{RegrTask} | \code{data.frame}.
 #' @export
