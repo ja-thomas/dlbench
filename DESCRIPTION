@@ -1,9 +1,19 @@
 Package: dlbench
-Title: What the Package Does (one line, title case)
+Title: Deep Learning Benchmark Problems
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.3.3)
-License: What license is it under?
+Authors@R: person("Janek", "Thomas", email = "janek.tho@gmail.com", role = c("aut", "cre"))
+Description: This is a collection of benchmarks suitable for deep neural
+    networks. For most benchmark generator functions are supported, such that
+    problems of different sizes and difficulties can be generated easily.
+License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 3.0.2)
+Imports:
+    BBmisc (>= 1.11),
+    checkmate (>= 1.8.2),
+    mlr (>= 2.10),
+    readbitmap,
+    mvtnorm
+RoxygenNote: 5.0.1
