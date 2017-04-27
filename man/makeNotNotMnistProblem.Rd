@@ -56,4 +56,7 @@ is returned. Otherwise a \code{data.frame} is returned.}
 Generate images of letters or numbers in various ways. Randomized size, position, rotations
 and fonts are available to set the difficulty of the problem.
 }
-
+\examples{
+ data = makeNotNotMnistProblem(10, create.task = FALSE)
+ image(matrix(as.numeric(data[1, -1]), ncol = 32))
+}

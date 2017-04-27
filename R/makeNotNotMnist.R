@@ -34,10 +34,24 @@
 #' @param create.task [\code{logical(1)}]\cr
 #'   Should a task be created? If \code{TRUE} a \pkg{mlr} classification task (see \code{\link[mlr]{makeClassifTask}}
 #'   is returned. Otherwise a \code{data.frame} is returned.
+#' @examples
+#'  data = makeNotNotMnistProblem(10, create.task = FALSE)
+#'  image(matrix(as.numeric(data[1, -1]), ncol = 32))
 #' @return \code{ClassifTask} | \code{data.frame}.
 #' @export
 makeNotNotMnistProblem = function(n = 5^4, sample.font = TRUE, random.rotation = 0, position.range = c(0.3, 0.7),
   size.range = c(15, 50), letters = LETTERS, resolution = c(32, 32), pointsize = 2,  create.task = TRUE) {
+
+
+  assertIntegerish(n, lower = 1, len = 1)
+  assertFlag(sample.font)
+  assertNumeric(random.rotation, lower = 0, upper = 360, len = 1)
+  assertNumeric(position.range, lower = 0, upper = 1, len = 2)
+  assertNumeric(size.range, lower = 0, len = 2)
+  assertVector(letters, min.len = 2)
+  assertIntegerish(resolution, lower = 1, len = 2)
+  assertIntegerish(pointsize, lower = 1, len = 1)
+  assertFlag(create.task)
 
 
   letter = sample(letters, n, replace = TRUE)

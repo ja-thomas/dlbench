@@ -16,4 +16,4 @@ Imports:
     mlr (>= 2.10),
     readbitmap,
     mvtnorm
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

@@ -43,4 +43,7 @@ Each observation is generated as follows:
  \item{The values of the pixels are returned as a vector with the correlation as target.}
 }
 }
-
+\examples{
+ data = makeCorrelationImageProblem(n = 20, create.task = FALSE)
+ image(matrix(as.numeric(data[1, -1]), ncol = 32))
+}

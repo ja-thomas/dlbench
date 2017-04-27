@@ -17,8 +17,13 @@
 #'   Should a task be created? If \code{TRUE} a \pkg{mlr} classification task (see \code{\link[mlr]{makeClassifTask}}
 #'   is returned. Otherwise a \code{data.frame} is returned.
 #' @return \code{ClassifTask} | \code{data.frame}.
+#' @examples
+#'  makeFizzbuzzProblem(1, create.task = FALSE)
 #' @export
 makeFizzbuzzProblem = function(n = 10^4, create.task = TRUE) {
+
+  assertIntegerish(n, lower = 1)
+  assertFlag(create.task)
 
   n = seq_len(n)
   target = ifelse(n %% 15 == 0, "fizzbuzz", ifelse(n %% 5 == 0, "buzz", ifelse(n %% 3 == 0, "fizz", "number")))

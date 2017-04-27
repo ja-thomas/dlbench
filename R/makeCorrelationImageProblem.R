@@ -29,8 +29,18 @@
 #'   Should a task be created? If \code{TRUE} a \pkg{mlr} regression task (see \code{\link[mlr]{makeRegrTask}}
 #'   is returned. Otherwise a \code{data.frame} is returned.
 #' @return \code{RegrTask} | \code{data.frame}.
+#' @examples
+#'  data = makeCorrelationImageProblem(n = 20, create.task = FALSE)
+#'  image(matrix(as.numeric(data[1, -1]), ncol = 32))
 #' @export
-makeCorrelationImageProblem = function(n = 5000L, resolution = c(32, 32), points.per.image = 100, pointsize = 2, create.task = TRUE) {
+makeCorrelationImageProblem = function(n = 5000L, resolution = c(32, 32), points.per.image = 100,
+  pointsize = 2, create.task = TRUE) {
+
+  assertIntegerish(n, lower = 1, len = 1)
+  assertIntegerish(resolution, lower = 1, len = 2)
+  assertIntegerish(points.per.image, lower = 1, len = 1)
+  assertIntegerish(pointsize, lower = 1, len = 1)
+  assertFlag(create.task)
 
   corr = runif(n, -1, 1)
 
@@ -41,7 +51,7 @@ makeCorrelationImageProblem = function(n = 5000L, resolution = c(32, 32), points
     bmp(tmp, width = resolution[1], height = resolution[2], pointsize = pointsize)
     plot(d, pch = 20, axes=FALSE, xlab = "", ylab = "")
     dev.off()
-    c(x, as.numeric(readbitmap::read.bitmap(tmp)))
+    c(x, readbitmap::read.bitmap(tmp))
   }, numeric(prod(resolution) + 1))
 
   res = data.frame(t(res))

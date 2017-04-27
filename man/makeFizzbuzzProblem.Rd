@@ -29,4 +29,6 @@ Each observation is one number encoded in 32-bit binary. The target if
  \item{\code{"number"} otherwise.}
 }
 }
-
+\examples{
+ makeFizzbuzzProblem(1, create.task = FALSE)
+}
